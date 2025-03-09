@@ -15,9 +15,16 @@ const material = new THREE.MeshStandardMaterial({color: 0x00ffcc})
 const cube = new THREE.Mesh(geomertry,material)
 scene.add(cube)
 
-
-const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.8,32,32), new THREE.MeshStandardMaterial({color:0xff5733}))
+const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.8,32,32), new THREE.MeshStandardMaterial({color:0xff5733}));
+sphere.position.set(2,1,0)
 scene.add(sphere)
+
+const ambientLight = new THREE.AmbientLight(0xffffff,0.5)
+scene.add(ambientLight)
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(5, 5, 5);
+scene.add(directionalLight);
 
 function animate(){
     requestAnimationFrame(animate)
