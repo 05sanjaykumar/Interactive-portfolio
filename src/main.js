@@ -67,6 +67,30 @@ window.addEventListener("click", (event) => {
     }
 });
 
+window.addEventListener('contextmenu',(event)=>{
+    event.preventDefault();
+    resetCameraPosition();
+})
+
+
+window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        resetCameraPosition();
+    }
+});
+
+
+function resetCameraPosition() {
+    gsap.to(camera.position, {
+        x: 0,
+        y: 2,
+        z: 5,
+        duration: 1.5,
+        ease: "power2.inOut"
+    });
+    console.log("Camera reset to original position.");
+}
+
 // Animation Loop
 function animate() {
     requestAnimationFrame(animate);
